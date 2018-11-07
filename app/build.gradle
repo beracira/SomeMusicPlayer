@@ -1,11 +1,10 @@
 import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId 'io.github.ryanhoo.music'
@@ -24,18 +23,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.android.support:design:24.2.0'
-    compile 'com.android.support:recyclerview-v7:24.2.0'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    api 'com.android.support:appcompat-v7:24.2.0'
+    api 'com.android.support:design:24.2.0'
+    api 'com.android.support:recyclerview-v7:24.2.0'
 
-    compile 'io.reactivex:rxjava:1.1.9'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    api 'io.reactivex:rxjava:1.1.9'
+    api 'io.reactivex:rxandroid:1.2.1'
+    api 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
-    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    api 'uk.co.chrisjenx:calligraphy:2.2.0'
 }
 
 def getVersionCode(build) {
