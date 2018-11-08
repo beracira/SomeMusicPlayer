@@ -15,19 +15,21 @@ import io.github.ryanhoo.music.ui.base.BaseFragment;
 import io.github.ryanhoo.music.ui.local.LocalFilesFragment;
 import io.github.ryanhoo.music.ui.music.MusicPlayerFragment;
 import io.github.ryanhoo.music.ui.playlist.PlayListFragment;
+import io.github.ryanhoo.music.ui.search.SearchFragment;
 import io.github.ryanhoo.music.ui.settings.SettingsFragment;
 
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-    static final int DEFAULT_PAGE_INDEX = 2;
+    static final int DEFAULT_PAGE_INDEX = 0;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.view_pager)
     ViewPager viewPager;
-    @BindViews({R.id.radio_button_play_list, R.id.radio_button_music, R.id.radio_button_local_files, R.id.radio_button_settings})
+    @BindViews({R.id.radio_button_play_list, R.id.radio_button_music,
+            R.id.radio_button_local_files, R.id.radio_button_settings, R.id.radio_button_search})
     List<RadioButton> radioButtons;
 
     String[] mTitles;
@@ -52,6 +54,7 @@ public class MainActivity extends BaseActivity {
         fragments[1] = new MusicPlayerFragment();
         fragments[2] = new LocalFilesFragment();
         fragments[3] = new SettingsFragment();
+        fragments[4] = new SearchFragment();
 
         // Inflate ViewPager
         MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), mTitles, fragments);
@@ -83,7 +86,8 @@ public class MainActivity extends BaseActivity {
         moveTaskToBack(true);
     }
 
-    @OnCheckedChanged({R.id.radio_button_play_list, R.id.radio_button_music, R.id.radio_button_local_files, R.id.radio_button_settings})
+    @OnCheckedChanged({R.id.radio_button_play_list, R.id.radio_button_music,
+            R.id.radio_button_local_files, R.id.radio_button_settings, R.id.radio_button_search})
     public void onRadioButtonChecked(RadioButton button, boolean isChecked) {
         if (isChecked) {
             onItemChecked(radioButtons.indexOf(button));

@@ -34,6 +34,14 @@ android {
             path file('CMakeLists.txt')
         }
     }
+    // If you want Gradle to package prebuilt native libraries
+    // with your APK, modify the default source set configuration
+    // to include the directory of your prebuilt .so files as follows.
+    sourceSets {
+        main {
+            jniLibs.srcDirs 'libnode/bin/'
+        }
+    }
 }
 
 dependencies {
