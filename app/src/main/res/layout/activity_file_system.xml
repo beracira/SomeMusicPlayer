@@ -28,7 +28,7 @@
 
     <TextView
         style="@style/MP.Theme.TextAppearance.List.Empty"
-        android:text="@string/mp.local_files.file_system.empty"
+        android:text="@string/mp_local_files_file_system_empty"
         tools:visibility="visible"
         />
 </android.support.design.widget.CoordinatorLayout>

@@ -19,14 +19,14 @@
         <RadioButton
             android:id="@+id/radio_button_all"
             style="@style/MP.Theme.Widget.SegmentedControl.Left"
-            android:text="@string/mp.local_files.segmented.all"
+            android:text="@string/mp_local_files_segmented_all"
             tools:checked="true"
             />
 
         <RadioButton
             android:id="@+id/radio_button_folder"
             style="@style/MP.Theme.Widget.SegmentedControl.Right"
-            android:text="@string/mp.local_files.segmented.folder"
+            android:text="@string/mp_local_files_segmented_folder"
             />
     </RadioGroup>
 

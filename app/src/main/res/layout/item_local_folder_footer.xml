@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/mp.local_files.folder_list.add_folder"
+                android:text="@string/mp_local_files_folder_list_add_folder"
                 />
         </LinearLayout>
     </FrameLayout>

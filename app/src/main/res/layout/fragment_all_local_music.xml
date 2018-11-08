@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:paddingTop="@dimen/mp.padding.large"
         android:clipToPadding="false"
-        recyclerView:layoutManager="@string/mp.list.layoutManager.linear"
+        recyclerView:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:listitem="@layout/item_local_music"
         />
 
@@ -66,7 +66,7 @@
     <TextView
         style="@style/MP.Theme.TextAppearance.List.Empty"
         android:layout_centerInParent="true"
-        android:text="@string/mp.local_files.music_list.empty"
+        android:text="@string/mp_local_files_music_list_empty"
         tools:visibility="visible"
         />
 </RelativeLayout>

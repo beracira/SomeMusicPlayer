@@ -9,7 +9,7 @@
         android:name=".MusicPlayerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/mp.app.name"
+        android:label="@string/mp_app_name"
         android:supportsRtl="true"
         android:theme="@style/MP.Theme">
         <activity
@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".ui.local.filesystem.FileSystemActivity"
-            android:label="@string/mp.activity.title.file_system"
+            android:label="@string/mp_activity_title_file_system"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.details.PlayListDetailsActivity"
