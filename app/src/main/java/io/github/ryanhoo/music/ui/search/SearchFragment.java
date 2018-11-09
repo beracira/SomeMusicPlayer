@@ -19,6 +19,7 @@ import java.net.URLConnection;
 import butterknife.BindView;
 import io.github.ryanhoo.music.R;
 import io.github.ryanhoo.music.nodeAPI.NodeInterface;
+import io.github.ryanhoo.music.nodeAPI.RequestAPI;
 import io.github.ryanhoo.music.ui.base.BaseFragment;
 
 public class SearchFragment extends BaseFragment {
@@ -33,36 +34,7 @@ public class SearchFragment extends BaseFragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                NodeInterface nodeInterface = NodeInterface.getInstance(view.getContext().getApplicationContext());
-                final String s_ = s;
-                new AsyncTask<Void,Void,String>() {
-                    @Override
-                    protected String doInBackground(Void... params) {
-                        String nodeResponse="";
-                        try {
-                            URL localNodeServer = new URL("http://localhost:3000"
-                                    + s_);
-                            URLConnection urlConnection = localNodeServer.openConnection();
-                            urlConnection.addRequestProperty("Cookie", "MUSIC_U=25bfb3af047026bfc193df9e6adb5f9d67e1da515f8135b3a29b1b4642105ba8d0836841826eba49db0bf06058486ead8bafcdfe5ad2b092; Expires=Fri, 23-Nov-2018 00:53:42 GMT; Path=/; HttpOnly");
-                            urlConnection.addRequestProperty("Cookie", "__remember_me=true; Expires=Fri, 23-Nov-2018 00:53:42 GMT; Path=/; HttpOnly");
-                            urlConnection.addRequestProperty("Cookie", "__csrf=162dd902f99fb1af7bcbdaf833775c5d; Expires=Fri, 23-Nov-2018 00:53:52 GMT; Path=/");
-                            urlConnection.connect();
-                            BufferedReader in = new BufferedReader(
-                                    new InputStreamReader(urlConnection.getInputStream()));
-                            String inputLine;
-                            while ((inputLine = in.readLine()) != null)
-                                nodeResponse=nodeResponse+inputLine;
-                            in.close();
-                        } catch (Exception ex) {
-                            nodeResponse=ex.toString();
-                        }
-                        return nodeResponse;
-                    }
-                    @Override
-                    protected void onPostExecute(String result) {
-                        textView.setText(result);
-                    }
-                }.execute();
+                new RequestAPI().execute(s);
                 return false;
             }
 

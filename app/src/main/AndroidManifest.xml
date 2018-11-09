@@ -29,6 +29,10 @@
             android:name=".ui.details.PlayListDetailsActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.settings.WeiboLoginActivity"
+            android:screenOrientation="portrait" />
+
         <service android:name=".player.PlaybackService">
             <intent-filter>
                 <action android:name="io.github.ryanhoo.music.ACTION.PLAY_TOGGLE" />

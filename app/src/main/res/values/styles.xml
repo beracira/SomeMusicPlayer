@@ -109,7 +109,7 @@
         <item name="android:scrollbars">vertical</item>
         <item name="android:scrollbarThumbVertical">@color/mp.list.scrollThumb</item>
         <item name="android:scrollbarSize">@dimen/mp.list.scrollbarSize</item>
-        <item name="layoutManager">@string/mp_list_layoutManager_linear</item>
+        <item name="layoutManager">android.support.v7.widget.LinearLayoutManager</item>
     </style>
 
     <style name="MP.Theme.Widget.ProgressBar" parent="@style/Widget.AppCompat.ProgressBar">

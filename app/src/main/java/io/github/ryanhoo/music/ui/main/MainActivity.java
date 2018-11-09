@@ -10,6 +10,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import io.github.ryanhoo.music.R;
+import io.github.ryanhoo.music.nodeAPI.NodeInterface;
 import io.github.ryanhoo.music.ui.base.BaseActivity;
 import io.github.ryanhoo.music.ui.base.BaseFragment;
 import io.github.ryanhoo.music.ui.local.LocalFilesFragment;
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        NodeInterface nodeInterface = NodeInterface.getInstance(getApplicationContext());
         setSupportActionBar(toolbar);
 
         // Main Controls' Titles

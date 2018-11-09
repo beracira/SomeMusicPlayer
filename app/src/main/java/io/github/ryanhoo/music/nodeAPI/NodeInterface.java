@@ -26,6 +26,7 @@ public class NodeInterface {
     public static NodeInterface getInstance(final Context appContext) {
         if (sNodeInterface == null) {
             sNodeInterface = new NodeInterface();
+            RequestAPI.setAppContext(appContext);
             NodeInterface.appContext = appContext;
             new Thread(new Runnable() {
                 @Override
@@ -162,7 +163,7 @@ public class NodeInterface {
                 "NODEJS_MOBILE_PREFS", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putLong("NODEJS_MOBILE_APK_LastUpdateTime", lastUpdateTime);
-        editor.commit();
+        editor.apply();
     }
 
 }

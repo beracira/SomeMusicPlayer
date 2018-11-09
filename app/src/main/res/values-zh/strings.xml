@@ -86,4 +86,6 @@
 
     <!-- Settings -->
     <string name="mp_fragment_setting_login">微博登陆</string>
+    <string name="mp_fragment_setting_login_successful">登陆成功</string>
+    <string name="mp_fragment_setting_login_failed">登陆失败</string>
 </resources>

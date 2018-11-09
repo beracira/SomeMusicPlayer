@@ -86,4 +86,8 @@
 
     <!-- Settings -->
     <string name="mp_fragment_setting_login">Login Weibo</string>
+    <string name="mp_fragment_setting_login_successful">Login successful</string>
+    <string name="mp_fragment_setting_login_failed">Login failed</string>
+
+    <!-- Pref -->
 </resources>
