@@ -16,7 +16,7 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
 
     static private Context appContext;
 
-    public static void setAppContext(Context appContext) {
+    static void setAppContext(Context appContext) {
         RequestAPI.appContext = appContext;
     }
 
@@ -27,7 +27,7 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        Log.d("Request Result:", s);
+        Log.d("Request Result", s);
     }
 
     @Override
