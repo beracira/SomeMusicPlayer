@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="io.github.ryanhoo.music">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -7,13 +8,15 @@
 
     <application
         android:name=".MusicPlayerApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/mp_app_name"
         android:supportsRtl="true"
-        android:theme="@style/MP.Theme">
+        android:theme="@style/MP.Theme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.AskPermsThenSplashActivity"
+            android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.local.filesystem.FileSystemActivity"
             android:label="@string/mp_activity_title_file_system"
