@@ -62,6 +62,7 @@ dependencies {
     api 'com.google.code.gson:gson:2.8.5'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     api 'uk.co.chrisjenx:calligraphy:2.2.0'
+    api 'com.squareup.okio:okio:2.1.0'
 }
 
 def getVersionCode(build) {

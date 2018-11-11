@@ -4,14 +4,18 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -23,8 +27,10 @@ import io.github.ryanhoo.music.Injection;
 import io.github.ryanhoo.music.R;
 import io.github.ryanhoo.music.data.model.PlayList;
 import io.github.ryanhoo.music.data.model.Song;
+import io.github.ryanhoo.music.nodeAPI.PigFarmModel.CacheData;
 import io.github.ryanhoo.music.nodeAPI.PigFarmModel.Recommend;
 import io.github.ryanhoo.music.nodeAPI.PigFarmModel.RecommendWrapper;
+import io.github.ryanhoo.music.player.Player;
 import io.github.ryanhoo.music.ui.playlist.PlayListPresenter;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -34,6 +40,8 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okio.BufferedSink;
+import okio.Okio;
 
 public class RequestAPI extends AsyncTask<String, Void, String> {
 
@@ -125,6 +133,7 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
                     for (int i = 0; i < recommendList.size(); ++i) {
                         Song song = new Song();
                         Recommend recommend = recommendList.get(i);
+                        song.setNid(recommend.id);
                         song.setTitle(recommend.name);
                         song.setDisplayName(recommend.name);
                         try {
@@ -144,6 +153,61 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
                 }
             }
         });
+    }
+
+    public void getCache(Song song) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                String id = song.getNid();
+                File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+                String filename = song.getArtist() + " - " + song.getDisplayName();
+                String path = dir + File.separator + filename;
+                Handler handler = new Handler(Injection.provideContext().getMainLooper());
+
+                String base_url = "https://api.imjad.cn/cloudmusic/?type=song&id=%s&br=%s";
+                String[] brs = new String[3];
+                brs[0] = "320000"; brs[1] = "198000"; brs[2] = "128000";
+                handler.post(() ->
+                        Toast.makeText(Injection.provideContext(),
+                                Injection.provideContext().getString(R.string.mp_toast_start_download), Toast.LENGTH_LONG).show());
+                for (int i = 0; i < 3; ++i) {
+                    Request request = new Request.Builder().url(String.format(base_url, id, brs[i])).build();
+                    Log.d("startdownloading", brs[i] + path);
+                    try {
+                        String s = client.newCall(request).execute().body().string();
+                        Gson gson = new GsonBuilder().create();
+                        CacheData cacheData = gson.fromJson(s, CacheData.class);
+                        if (cacheData.code != 200) {
+                            Log.e("getCache","oops, we are fucked again");
+                            continue;
+                        }
+                        Request fileRequest = new Request.Builder().url(cacheData.data.get(0).url).build();
+                        Response response = client.newCall(fileRequest).execute();
+                        File cacheFile = new File(path);
+                        BufferedSink sink = Okio.buffer(Okio.sink(cacheFile));
+                        sink.writeAll(response.body().source());
+                        sink.close();
+
+                        song.setSize(cacheData.data.get(0).size);
+                        song.setPath(path);
+
+                        handler.post(() ->
+                                Toast.makeText(Injection.provideContext(),
+                                        Injection.provideContext().getString(R.string.mp_toast_download_complete), Toast.LENGTH_LONG).show());
+                        handler.post(() ->
+                                Player.getInstance().play());
+                        break;
+                    } catch (IOException | NullPointerException e) {
+                        handler.post(() ->
+                                Toast.makeText(Injection.provideContext(),
+                                        Injection.provideContext().getString(R.string.mp_toast_download_fail), Toast.LENGTH_LONG).show());
+                        e.printStackTrace();
+                    }
+                }
+                return null;
+            }
+        }.execute();
     }
 
     public void query(String s) {

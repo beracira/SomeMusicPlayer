@@ -92,4 +92,10 @@
     <string name="mp_fragment_setting_login_failed">Login failed</string>
 
     <!-- Pref -->
+
+    <!-- Action Toast -->
+    <string name="mp_toast_start_download">start downloading…</string>
+    <string name="mp_toast_download_complete">download complete</string>
+    <string name="mp_toast_download_fail">download failed</string>
+
 </resources>

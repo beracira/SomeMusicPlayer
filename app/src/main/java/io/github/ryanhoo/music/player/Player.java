@@ -1,11 +1,15 @@
 package io.github.ryanhoo.music.player;
 
+import android.app.DownloadManager;
 import android.media.MediaPlayer;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import io.github.ryanhoo.music.data.model.PlayList;
 import io.github.ryanhoo.music.data.model.Song;
+import io.github.ryanhoo.music.nodeAPI.RequestAPI;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +72,12 @@ public class Player implements IPlayback, MediaPlayer.OnCompletionListener {
             Song song = mPlayList.getCurrentSong();
             try {
                 mPlayer.reset();
+
+                // check if the file is available locally
+                if (song.getPath().compareTo("/") == 0) {
+                    RequestAPI.getInstance().getCache(song);
+                    return false;
+                }
                 mPlayer.setDataSource(song.getPath());
                 mPlayer.prepare();
                 mPlayer.start();

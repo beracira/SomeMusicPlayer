@@ -5,6 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
@@ -99,5 +101,9 @@ public class MainActivity extends BaseActivity {
     private void onItemChecked(int position) {
         viewPager.setCurrentItem(position);
         toolbar.setTitle(mTitles[position]);
+    }
+
+    public void makeToast(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 }

@@ -20,6 +20,8 @@ public class Song implements Parcelable {
     @PrimaryKey(AssignType.AUTO_INCREMENT)
     private int id;
 
+    private String nid;
+
     private String title;
 
     private String displayName;
@@ -51,6 +53,14 @@ public class Song implements Parcelable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNid() {
+        return nid;
+    }
+
+    public void setNid(String nid) {
+        this.nid = nid;
     }
 
     public String getTitle() {
@@ -125,6 +135,7 @@ public class Song implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.id);
+        dest.writeString(this.nid);
         dest.writeString(this.title);
         dest.writeString(this.displayName);
         dest.writeString(this.artist);
@@ -137,6 +148,7 @@ public class Song implements Parcelable {
 
     public void readFromParcel(Parcel in) {
         this.id = in.readInt();
+        this.nid = in.readString();
         this.title = in.readString();
         this.displayName = in.readString();
         this.artist = in.readString();

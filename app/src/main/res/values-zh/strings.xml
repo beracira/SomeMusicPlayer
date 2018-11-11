@@ -90,4 +90,9 @@
     <string name="mp_fragment_setting_login">微博登陆</string>
     <string name="mp_fragment_setting_login_successful">登陆成功</string>
     <string name="mp_fragment_setting_login_failed">登陆失败</string>
+
+    <!-- Action Toast -->
+    <string name="mp_toast_start_download">开始下载</string>
+    <string name="mp_toast_download_complete">下载完成</string>
+    <string name="mp_toast_download_fail">下载失败</string>
 </resources>
