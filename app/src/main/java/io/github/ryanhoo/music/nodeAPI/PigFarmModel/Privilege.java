@@ -7,7 +7,7 @@ public class Privilege {
 
     @SerializedName("id")
     @Expose
-    public Integer id;
+    public String id;
     @SerializedName("fee")
     @Expose
     public Integer fee;

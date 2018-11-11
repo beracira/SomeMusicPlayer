@@ -13,10 +13,10 @@ public class Artist_ {
     public String name;
     @SerializedName("id")
     @Expose
-    public Integer id;
+    public String id;
     @SerializedName("picId")
     @Expose
-    public Integer picId;
+    public String picId;
     @SerializedName("img1v1Id")
     @Expose
     public Integer img1v1Id;

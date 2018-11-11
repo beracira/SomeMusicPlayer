@@ -10,7 +10,7 @@ public class LMusic {
     public Object name;
     @SerializedName("id")
     @Expose
-    public Integer id;
+    public String id;
     @SerializedName("size")
     @Expose
     public Integer size;

@@ -12,7 +12,7 @@ public class Recommend {
     public String name;
     @SerializedName("id")
     @Expose
-    public Integer id;
+    public String id;
     @SerializedName("position")
     @Expose
     public Integer position;

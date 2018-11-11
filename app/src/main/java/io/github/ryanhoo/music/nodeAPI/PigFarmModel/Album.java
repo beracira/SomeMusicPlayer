@@ -12,7 +12,7 @@ public class Album {
     public String name;
     @SerializedName("id")
     @Expose
-    public Integer id;
+    public String id;
     @SerializedName("type")
     @Expose
     public String type;
@@ -21,7 +21,7 @@ public class Album {
     public Integer size;
     @SerializedName("picId")
     @Expose
-    public Integer picId;
+    public String picId;
     @SerializedName("blurPicUrl")
     @Expose
     public String blurPicUrl;
@@ -30,13 +30,13 @@ public class Album {
     public Integer companyId;
     @SerializedName("pic")
     @Expose
-    public Integer pic;
+    public String pic;
     @SerializedName("picUrl")
     @Expose
     public String picUrl;
     @SerializedName("publishTime")
     @Expose
-    public Integer publishTime;
+    public String publishTime;
     @SerializedName("description")
     @Expose
     public String description;
