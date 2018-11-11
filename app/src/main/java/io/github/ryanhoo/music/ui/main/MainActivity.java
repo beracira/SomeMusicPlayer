@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        NodeInterface nodeInterface = NodeInterface.getInstance(getApplicationContext());
+        NodeInterface nodeInterface = NodeInterface.getInstance();
         setSupportActionBar(toolbar);
 
         // Main Controls' Titles

@@ -31,6 +31,8 @@
         <item quantity="other">%d songs</item>
     </plurals>
 
+    <string name="mp_play_list_daily">Daily Recommendation</string>
+
     <!-- Play Lists - Details -->
     <string name="mp_play_list_details_empty">No music here, go add some!</string>
     <string name="mp_play_list_details_footer_end_summary_formatter">%d songs in total</string>

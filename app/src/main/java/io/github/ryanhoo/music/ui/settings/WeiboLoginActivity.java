@@ -48,13 +48,17 @@ public class WeiboLoginActivity extends AppCompatActivity {
                 super.onPageFinished(view, url);
                 Log.i("WebView", "finished url " + url);
                 String cookie = CookieManager.getInstance().getCookie(url);
+                if (cookie == null) {
+                    Log.d("WebView", "No cookie");
+                    return;
+                }
                 HashMap<String, String> parsed = parseCookie(cookie);
                 if (parsed.containsKey("MUSIC_U")) {
                     storeCookie(parsed);
                     setResult(AppCompatActivity.RESULT_OK, new Intent());
                     finish();
                 }
-                Log.i("WebView", "All the cookies in a string:" + cookie);
+                Log.d("WebView", "All the cookies in a string:" + cookie);
             }
         });
 

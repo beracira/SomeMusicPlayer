@@ -54,7 +54,7 @@ public class Recommend {
     public String starredNum;
     @SerializedName("duration")
     @Expose
-    public String duration;
+    public Integer duration;
     @SerializedName("playedNum")
     @Expose
     public String playedNum;

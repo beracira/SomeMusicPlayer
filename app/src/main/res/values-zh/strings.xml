@@ -26,6 +26,8 @@
     <string name="mp_play_list_dialog_hint">播放列表名称</string>
     <string name="mp_play_list_dialog_add_to">添加至播放列表</string>
 
+    <string name="mp_play_list_daily">日推</string>
+
     <plurals name="mp_play_list_items_formatter">
         <item quantity="one">%d 首歌</item>
         <item quantity="other">%d 首歌</item>

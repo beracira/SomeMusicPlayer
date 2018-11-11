@@ -25,6 +25,7 @@ import io.github.ryanhoo.music.data.model.PlayList;
 import io.github.ryanhoo.music.data.model.Song;
 import io.github.ryanhoo.music.data.source.AppRepository;
 import io.github.ryanhoo.music.event.PlayListCreatedEvent;
+import io.github.ryanhoo.music.nodeAPI.RequestAPI;
 import io.github.ryanhoo.music.ui.base.BaseFragment;
 import io.github.ryanhoo.music.ui.playlist.PlayListPresenter;
 
@@ -50,22 +51,7 @@ public class SettingsFragment extends BaseFragment {
 
     @OnClick(R.id.setting_test)
     public void test() {
-        Song song = new Song();
-        song.setTitle("my fav song");
-        song.setDisplayName("MY FAV SONG");
-        song.setArtist("yeah yeah");
-        song.setPath("/");
-        song.setAlbum("album");
-        song.setDuration(123456);
-        song.setSize(4096);
-        List<Song> ls = new LinkedList<>();
-        ((LinkedList<Song>) ls).push(song);
-        PlayList playList = new PlayList(song);
-        playList.setName("shit list");
-        Log.d("Setting test", "before insert song");
-        PlayListPresenter playListPresenter = PlayListPresenter.getInstance();
-        playListPresenter.createPlayList(playList);
-        Log.d("Setting test", "after insert song");
+        RequestAPI.getInstance().getDaily();
     }
 
     @Nullable
