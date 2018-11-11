@@ -55,6 +55,8 @@ dependencies {
     api 'io.reactivex:rxjava:1.1.9'
     api 'io.reactivex:rxandroid:1.2.1'
     api 'com.jakewharton:butterknife:8.4.0'
+    api 'com.squareup.okhttp3:okhttp:3.11.0'
+    api 'com.google.code.gson:gson:2.8.5'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
     api 'uk.co.chrisjenx:calligraphy:2.2.0'

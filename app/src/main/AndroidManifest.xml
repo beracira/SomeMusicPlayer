@@ -8,12 +8,11 @@
 
     <application
         android:name=".MusicPlayerApplication"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/mp_app_name"
         android:supportsRtl="true"
-        android:theme="@style/MP.Theme"
-        tools:ignore="GoogleAppIndexingWarning">
+        android:theme="@style/MP.Theme">
         <activity
             android:name=".ui.main.AskPermsThenSplashActivity"
             android:theme="@style/AppTheme"

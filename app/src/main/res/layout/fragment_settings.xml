@@ -10,4 +10,12 @@
         android:layout_centerInParent="true"
         android:text="@string/mp_fragment_setting_login"
         android:textColor="?attr/colorAccent" />
+
+    <Button
+        android:id="@+id/setting_test"
+        android:layout_centerHorizontal="true"
+        android:text="fuck me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_weibo_login"/>
 </RelativeLayout>

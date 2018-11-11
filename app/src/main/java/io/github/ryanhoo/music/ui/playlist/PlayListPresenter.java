@@ -1,5 +1,7 @@
 package io.github.ryanhoo.music.ui.playlist;
 
+import android.support.annotation.Nullable;
+
 import io.github.ryanhoo.music.data.model.PlayList;
 import io.github.ryanhoo.music.data.source.AppRepository;
 import rx.Subscriber;
@@ -19,6 +21,7 @@ import java.util.List;
  */
 public class PlayListPresenter implements PlayListContract.Presenter {
 
+    private static PlayListPresenter instance = null;
     private PlayListContract.View mView;
     private AppRepository mRepository;
     private CompositeSubscription mSubscriptions;
@@ -28,6 +31,12 @@ public class PlayListPresenter implements PlayListContract.Presenter {
         mRepository = repository;
         mSubscriptions = new CompositeSubscription();
         mView.setPresenter(this);
+        instance = this;
+    }
+
+    @Nullable
+    public static PlayListPresenter getInstance() {
+        return instance;
     }
 
     @Override
