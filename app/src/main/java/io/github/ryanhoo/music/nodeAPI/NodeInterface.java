@@ -12,8 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import io.github.ryanhoo.music.Injection;
+
 public class NodeInterface {
-    static private Context appContext;
     public static boolean _startedNodeAlready = false;
     private static NodeInterface sNodeInterface = null;
 
@@ -23,33 +24,30 @@ public class NodeInterface {
     }
 
 
-    public static NodeInterface getInstance(final Context appContext) {
+    public static NodeInterface getInstance() {
         if (sNodeInterface == null) {
             sNodeInterface = new NodeInterface();
-            RequestAPI.setAppContext(appContext);
-            NodeInterface.appContext = appContext;
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    //The path where we expect the node project to be at runtime.
-                    String nodeDir = appContext.getFilesDir().getAbsolutePath()
-                            + "/nodejs-project";
-                    if (wasAPKUpdated()) {
-                        //Recursively delete any existing nodejs-project.
-                        File nodeDirReference = new File(nodeDir);
-                        if (nodeDirReference.exists()) {
-                            deleteFolderRecursively(new File(nodeDir));
-                        }
-                        //Copy the node project from assets into the application's data path.
-                        copyAssetFolder(appContext.getAssets(), "node-api",
-                                nodeDir);
-
-                        saveLastUpdateTime();
+            Context appContext = Injection.provideContext();
+            new Thread(() -> {
+                //The path where we expect the node project to be at runtime.
+                String nodeDir = appContext.getFilesDir().getAbsolutePath()
+                        + "/nodejs-project";
+                if (wasAPKUpdated()) {
+                    //Recursively delete any existing nodejs-project.
+                    File nodeDirReference = new File(nodeDir);
+                    if (nodeDirReference.exists()) {
+                        deleteFolderRecursively(new File(nodeDir));
                     }
-                    startNodeWithArguments(new String[]{"node",
-                            nodeDir + "/app.js"
-                    });
+                    //Copy the node project from assets into the application's data path.
+                    copyAssetFolder(appContext.getAssets(), "node-api",
+                            nodeDir);
+
+                    saveLastUpdateTime();
                 }
+                startNodeWithArguments(new String[]{"node",
+                        nodeDir + "/app.js"
+                });
+
             }).start();
         }
 
@@ -102,8 +100,8 @@ public class NodeInterface {
 
     private static boolean copyAsset(AssetManager assetManager, String fromAssetPath,
             String toPath) {
-        InputStream in = null;
-        OutputStream out = null;
+        InputStream in;
+        OutputStream out;
         try {
             in = assetManager.open(fromAssetPath);
             new File(toPath).createNewFile();
@@ -136,6 +134,7 @@ public class NodeInterface {
     static public native Integer startNodeWithArguments(String[] arguments);
 
     static private boolean wasAPKUpdated() {
+        Context appContext = Injection.provideContext();
         SharedPreferences prefs = appContext.getSharedPreferences(
                 "NODEJS_MOBILE_PREFS", Context.MODE_PRIVATE);
         long previousLastUpdateTime = prefs.getLong("NODEJS_MOBILE_APK_LastUpdateTime", 0);
@@ -151,6 +150,7 @@ public class NodeInterface {
     }
 
     static private void saveLastUpdateTime() {
+        Context appContext = Injection.provideContext();
         long lastUpdateTime = 1;
         try {
             PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(
