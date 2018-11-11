@@ -18,7 +18,7 @@ public class Album {
     public String type;
     @SerializedName("size")
     @Expose
-    public Integer size;
+    public String size;
     @SerializedName("picId")
     @Expose
     public String picId;
@@ -27,7 +27,7 @@ public class Album {
     public String blurPicUrl;
     @SerializedName("companyId")
     @Expose
-    public Integer companyId;
+    public String companyId;
     @SerializedName("pic")
     @Expose
     public String pic;
@@ -60,10 +60,10 @@ public class Album {
     public List<Object> alias = null;
     @SerializedName("status")
     @Expose
-    public Integer status;
+    public String status;
     @SerializedName("copyrightId")
     @Expose
-    public Integer copyrightId;
+    public String copyrightId;
     @SerializedName("commentThreadId")
     @Expose
     public String commentThreadId;

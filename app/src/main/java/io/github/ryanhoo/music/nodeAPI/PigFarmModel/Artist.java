@@ -18,7 +18,7 @@ public class Artist {
     public String picId;
     @SerializedName("img1v1Id")
     @Expose
-    public Integer img1v1Id;
+    public String img1v1Id;
     @SerializedName("briefDesc")
     @Expose
     public String briefDesc;
@@ -30,7 +30,7 @@ public class Artist {
     public String img1v1Url;
     @SerializedName("albumSize")
     @Expose
-    public Integer albumSize;
+    public String albumSize;
     @SerializedName("alias")
     @Expose
     public List<Object> alias = null;
@@ -39,6 +39,6 @@ public class Artist {
     public String trans;
     @SerializedName("musicSize")
     @Expose
-    public Integer musicSize;
+    public String musicSize;
 
 }

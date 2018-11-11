@@ -15,25 +15,25 @@ public class Recommend {
     public String id;
     @SerializedName("position")
     @Expose
-    public Integer position;
+    public String position;
     @SerializedName("alias")
     @Expose
     public List<Object> alias = null;
     @SerializedName("status")
     @Expose
-    public Integer status;
+    public String status;
     @SerializedName("fee")
     @Expose
-    public Integer fee;
+    public String fee;
     @SerializedName("copyrightId")
     @Expose
-    public Integer copyrightId;
+    public String copyrightId;
     @SerializedName("disc")
     @Expose
     public String disc;
     @SerializedName("no")
     @Expose
-    public Integer no;
+    public String no;
     @SerializedName("artists")
     @Expose
     public List<Artist> artists = null;
@@ -45,25 +45,25 @@ public class Recommend {
     public Boolean starred;
     @SerializedName("popularity")
     @Expose
-    public Integer popularity;
+    public String popularity;
     @SerializedName("score")
     @Expose
-    public Integer score;
+    public String score;
     @SerializedName("starredNum")
     @Expose
-    public Integer starredNum;
+    public String starredNum;
     @SerializedName("duration")
     @Expose
-    public Integer duration;
+    public String duration;
     @SerializedName("playedNum")
     @Expose
-    public Integer playedNum;
+    public String playedNum;
     @SerializedName("dayPlays")
     @Expose
-    public Integer dayPlays;
+    public String dayPlays;
     @SerializedName("hearTime")
     @Expose
-    public Integer hearTime;
+    public String hearTime;
     @SerializedName("ringtone")
     @Expose
     public Object ringtone;
@@ -84,13 +84,13 @@ public class Recommend {
     public Object rtUrl;
     @SerializedName("ftype")
     @Expose
-    public Integer ftype;
+    public String ftype;
     @SerializedName("rtUrls")
     @Expose
     public List<Object> rtUrls = null;
     @SerializedName("copyright")
     @Expose
-    public Integer copyright;
+    public String copyright;
     @SerializedName("transName")
     @Expose
     public Object transName;
@@ -111,10 +111,10 @@ public class Recommend {
     public BMusic bMusic;
     @SerializedName("mvid")
     @Expose
-    public Integer mvid;
+    public String mvid;
     @SerializedName("rtype")
     @Expose
-    public Integer rtype;
+    public String rtype;
     @SerializedName("rurl")
     @Expose
     public Object rurl;

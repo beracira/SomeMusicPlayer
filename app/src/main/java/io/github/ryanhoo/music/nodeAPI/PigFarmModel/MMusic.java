@@ -13,22 +13,22 @@ public class MMusic {
     public String id;
     @SerializedName("size")
     @Expose
-    public Integer size;
+    public String size;
     @SerializedName("extension")
     @Expose
     public String extension;
     @SerializedName("sr")
     @Expose
-    public Integer sr;
+    public String sr;
     @SerializedName("dfsId")
     @Expose
-    public Integer dfsId;
+    public String dfsId;
     @SerializedName("bitrate")
     @Expose
-    public Integer bitrate;
+    public String bitrate;
     @SerializedName("playTime")
     @Expose
-    public Integer playTime;
+    public String playTime;
     @SerializedName("volumeDelta")
     @Expose
     public Double volumeDelta;

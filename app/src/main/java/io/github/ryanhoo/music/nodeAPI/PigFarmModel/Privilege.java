@@ -10,43 +10,43 @@ public class Privilege {
     public String id;
     @SerializedName("fee")
     @Expose
-    public Integer fee;
+    public String fee;
     @SerializedName("payed")
     @Expose
-    public Integer payed;
+    public String payed;
     @SerializedName("st")
     @Expose
-    public Integer st;
+    public String st;
     @SerializedName("pl")
     @Expose
-    public Integer pl;
+    public String pl;
     @SerializedName("dl")
     @Expose
-    public Integer dl;
+    public String dl;
     @SerializedName("sp")
     @Expose
-    public Integer sp;
+    public String sp;
     @SerializedName("cp")
     @Expose
-    public Integer cp;
+    public String cp;
     @SerializedName("subp")
     @Expose
-    public Integer subp;
+    public String subp;
     @SerializedName("cs")
     @Expose
     public Boolean cs;
     @SerializedName("maxbr")
     @Expose
-    public Integer maxbr;
+    public String maxbr;
     @SerializedName("fl")
     @Expose
-    public Integer fl;
+    public String fl;
     @SerializedName("toast")
     @Expose
     public Boolean toast;
     @SerializedName("flag")
     @Expose
-    public Integer flag;
+    public String flag;
     @SerializedName("preSell")
     @Expose
     public Boolean preSell;
