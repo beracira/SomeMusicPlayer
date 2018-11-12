@@ -10,8 +10,7 @@
 
 ## TODO
 
-- Lyric Support
-- Settings
+- See issues
 
 ## Acknowledgements
 
