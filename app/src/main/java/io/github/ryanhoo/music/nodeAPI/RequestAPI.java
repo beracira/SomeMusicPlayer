@@ -31,6 +31,7 @@ import io.github.ryanhoo.music.nodeAPI.PigFarmModel.CacheData;
 import io.github.ryanhoo.music.nodeAPI.PigFarmModel.Recommend;
 import io.github.ryanhoo.music.nodeAPI.PigFarmModel.RecommendWrapper;
 import io.github.ryanhoo.music.player.Player;
+import io.github.ryanhoo.music.ui.details.PlayListDetailsPresenter;
 import io.github.ryanhoo.music.ui.playlist.PlayListPresenter;
 import okhttp3.Call;
 import okhttp3.Callback;

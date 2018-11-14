@@ -1,5 +1,7 @@
 package io.github.ryanhoo.music.ui.details;
 
+import android.support.annotation.Nullable;
+
 import io.github.ryanhoo.music.RxBus;
 import io.github.ryanhoo.music.data.model.PlayList;
 import io.github.ryanhoo.music.data.model.Song;
@@ -20,6 +22,7 @@ import rx.subscriptions.CompositeSubscription;
  */
 public class PlayListDetailsPresenter implements PlayListDetailsContract.Presenter {
 
+    private static PlayListDetailsPresenter instance = null;
     private PlayListDetailsContract.View mView;
     private AppRepository mRepository;
     private CompositeSubscription mSubscriptions;
@@ -29,6 +32,13 @@ public class PlayListDetailsPresenter implements PlayListDetailsContract.Present
         mRepository = repository;
         mSubscriptions = new CompositeSubscription();
         mView.setPresenter(this);
+        instance = this;
+    }
+
+
+    @Nullable
+    public static PlayListDetailsPresenter getInstance() {
+        return instance;
     }
 
     @Override
