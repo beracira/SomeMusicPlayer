@@ -2,10 +2,8 @@ package io.github.ryanhoo.music.ui.settings;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.customtabs.CustomTabsIntent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,21 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.ryanhoo.music.R;
-import io.github.ryanhoo.music.RxBus;
-import io.github.ryanhoo.music.data.model.PlayList;
-import io.github.ryanhoo.music.data.model.Song;
-import io.github.ryanhoo.music.data.source.AppRepository;
-import io.github.ryanhoo.music.event.PlayListCreatedEvent;
 import io.github.ryanhoo.music.nodeAPI.RequestAPI;
 import io.github.ryanhoo.music.ui.base.BaseFragment;
-import io.github.ryanhoo.music.ui.playlist.PlayListPresenter;
 
 /**
  * Created with Android Studio.
@@ -66,9 +55,9 @@ public class SettingsFragment extends BaseFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
-            Toast.makeText(getActivity(), R.string.mp_fragment_setting_login_successful, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.fragment_setting_login_successful, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(getActivity(), R.string.mp_fragment_setting_login_failed, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.fragment_setting_login_failed, Toast.LENGTH_LONG).show();
         }
     }
 

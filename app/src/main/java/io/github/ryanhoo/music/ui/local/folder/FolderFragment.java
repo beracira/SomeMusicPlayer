@@ -196,7 +196,7 @@ public class FolderFragment extends BaseFragment implements FolderContract.View,
         mAdapter.updateFooterView();
         if (newItemCount > 0) {
             String toast = getResources().getQuantityString(
-                    R.plurals.mp_folders_created_formatter,
+                    R.plurals.folders_created_formatter,
                     newItemCount,
                     newItemCount
             );
@@ -220,7 +220,7 @@ public class FolderFragment extends BaseFragment implements FolderContract.View,
     @Override
     public void onPlayListCreated(PlayList playList) {
         RxBus.getInstance().post(new PlayListCreatedEvent(playList));
-        Toast.makeText(getActivity(), getString(R.string.mp_play_list_created, playList.getName()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getString(R.string.play_list_created, playList.getName()), Toast.LENGTH_SHORT).show();
     }
 
     @Override

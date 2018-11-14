@@ -66,7 +66,7 @@
             android:textColor="?attr/colorAccent"
             android:textSize="12sp"
             android:singleLine="true"
-            android:text="@string/mp_music_default_duration"
+            android:text="@string/music_default_duration"
             />
 
         <android.support.v7.widget.AppCompatSeekBar
@@ -86,7 +86,7 @@
             android:textColor="?attr/colorAccent"
             android:textSize="12sp"
             android:singleLine="true"
-            android:text="@string/mp_music_default_duration"
+            android:text="@string/music_default_duration"
             tools:text="03:22"
             />
     </LinearLayout>

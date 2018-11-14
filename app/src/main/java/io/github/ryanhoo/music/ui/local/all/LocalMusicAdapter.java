@@ -27,7 +27,7 @@ public class LocalMusicAdapter extends AbstractSummaryAdapter<Song, LocalMusicIt
 
     @Override
     protected String getEndSummaryText(int dataCount) {
-        return mContext.getString(R.string.mp_local_files_music_list_end_summary_formatter, dataCount);
+        return mContext.getString(R.string.local_files_music_list_end_summary_formatter, dataCount);
     }
 
     @Override

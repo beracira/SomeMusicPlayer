@@ -11,7 +11,7 @@
         android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/mp_play_list_dialog_hint"
+        android:hint="@string/play_list_dialog_hint"
         android:imeOptions="actionDone"
         android:inputType="textCapWords"
         android:maxLength="@integer/mp.limits.play_list_name"

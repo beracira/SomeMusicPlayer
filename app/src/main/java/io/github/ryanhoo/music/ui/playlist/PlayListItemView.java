@@ -45,6 +45,6 @@ public class PlayListItemView extends RelativeLayout implements IAdapterView<Pla
         }
         textViewName.setText(item.getName());
         textViewInfo.setText(getResources().getQuantityString(
-                R.plurals.mp_play_list_items_formatter, item.getItemCount(), item.getItemCount()));
+                R.plurals.play_list_items_formatter, item.getItemCount(), item.getItemCount()));
     }
 }

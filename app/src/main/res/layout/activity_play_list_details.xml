@@ -32,7 +32,7 @@
 
     <TextView
         style="@style/MP.Theme.TextAppearance.List.Empty"
-        android:text="@string/mp_play_list_details_empty"
+        android:text="@string/play_list_details_empty"
         tools:visibility="visible"
         />
 

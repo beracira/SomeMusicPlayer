@@ -93,7 +93,7 @@ public class PlayListAdapter extends AbstractFooterAdapter<PlayList, PlayListIte
         int itemCount = getItemCount() - 1; // real data count
         if (itemCount > 1) {
             textViewSummary.setVisibility(View.VISIBLE);
-            textViewSummary.setText(mContext.getString(R.string.mp_play_list_footer_end_summary_formatter, itemCount));
+            textViewSummary.setText(mContext.getString(R.string.play_list_footer_end_summary_formatter, itemCount));
         } else {
             textViewSummary.setVisibility(View.GONE);
         }
