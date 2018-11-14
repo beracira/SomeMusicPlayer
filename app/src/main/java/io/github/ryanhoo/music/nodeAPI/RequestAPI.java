@@ -1,6 +1,5 @@
 package io.github.ryanhoo.music.nodeAPI;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -15,7 +14,6 @@ import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -129,7 +127,7 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
                 } else {
                     List<Recommend> recommendList = recommendWrapper.recommend;
                     PlayList playList = new PlayList();
-                    playList.setName(Injection.provideContext().getString(R.string.mp_play_list_daily));
+                    playList.setName(Injection.provideContext().getString(R.string.play_list_daily));
                     for (int i = 0; i < recommendList.size(); ++i) {
                         Song song = new Song();
                         Recommend recommend = recommendList.get(i);
@@ -170,7 +168,7 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
                 brs[0] = "320000"; brs[1] = "198000"; brs[2] = "128000";
                 handler.post(() ->
                         Toast.makeText(Injection.provideContext(),
-                                Injection.provideContext().getString(R.string.mp_toast_start_download), Toast.LENGTH_LONG).show());
+                                Injection.provideContext().getString(R.string.toast_start_download), Toast.LENGTH_LONG).show());
                 for (int i = 0; i < 3; ++i) {
                     Request request = new Request.Builder().url(String.format(base_url, id, brs[i])).build();
                     Log.d("startdownloading", brs[i] + path);
@@ -194,14 +192,14 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
 
                         handler.post(() ->
                                 Toast.makeText(Injection.provideContext(),
-                                        Injection.provideContext().getString(R.string.mp_toast_download_complete), Toast.LENGTH_LONG).show());
+                                        Injection.provideContext().getString(R.string.toast_download_complete), Toast.LENGTH_LONG).show());
                         handler.post(() ->
                                 Player.getInstance().play());
                         break;
                     } catch (IOException | NullPointerException e) {
                         handler.post(() ->
                                 Toast.makeText(Injection.provideContext(),
-                                        Injection.provideContext().getString(R.string.mp_toast_download_fail), Toast.LENGTH_LONG).show());
+                                        Injection.provideContext().getString(R.string.toast_download_fail), Toast.LENGTH_LONG).show());
                         e.printStackTrace();
                     }
                 }

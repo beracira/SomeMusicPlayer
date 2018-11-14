@@ -65,7 +65,7 @@ public class FileSystemActivity extends BaseActivity {
         ButterKnife.bind(this);
         supportActionBar(toolbar);
 
-        DEFAULT_SDCARD_NAME = getString(R.string.mp_activity_title_file_system);
+        DEFAULT_SDCARD_NAME = getString(R.string.activity_title_file_system);
 
         mFileTreeStack = new FileTreeStack();
         mAdapter = new FileSystemAdapter(this, null);

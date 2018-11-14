@@ -57,7 +57,7 @@ public class FileItemView extends RelativeLayout implements IAdapterView<FileWra
             File[] files = file.listFiles(SystemFileFilter.DEFAULT_INSTANCE);
             int itemCount = files == null ? 0 : files.length;
             textViewInfo.setText(getContext().getResources().getQuantityString(
-                    R.plurals.mp_directory_items_formatter,
+                    R.plurals.directory_items_formatter,
                     itemCount, // one
                     itemCount  // other
             ));

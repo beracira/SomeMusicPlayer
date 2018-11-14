@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         // Main Controls' Titles
-        mTitles = getResources().getStringArray(R.array.mp_main_titles);
+        mTitles = getResources().getStringArray(R.array.main_titles);
 
         // Fragments
         BaseFragment[] fragments = new BaseFragment[mTitles.length];

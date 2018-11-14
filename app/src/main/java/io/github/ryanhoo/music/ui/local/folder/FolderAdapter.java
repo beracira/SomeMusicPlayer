@@ -93,7 +93,7 @@ public class FolderAdapter extends AbstractFooterAdapter<Folder, FolderItemView>
         int itemCount = getItemCount() - 1; // real data count
         if (itemCount > 1) {
             textViewSummary.setVisibility(View.VISIBLE);
-            textViewSummary.setText(mContext.getString(R.string.mp_local_files_folder_list_end_summary_formatter, itemCount));
+            textViewSummary.setText(mContext.getString(R.string.local_files_folder_list_end_summary_formatter, itemCount));
         } else {
             textViewSummary.setVisibility(View.GONE);
         }

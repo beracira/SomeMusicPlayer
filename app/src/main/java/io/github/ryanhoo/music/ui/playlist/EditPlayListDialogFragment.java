@@ -61,8 +61,8 @@ public class EditPlayListDialogFragment extends BaseDialogFragment implements Di
         final Dialog dialog = new AlertDialog.Builder(getContext())
                 .setTitle(getTitle())
                 .setView(R.layout.dialog_create_or_edit_play_list)
-                .setNegativeButton(R.string.mp_cancel, null)
-                .setPositiveButton(R.string.mp_Confirm, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.cancel, null)
+                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         onConfirm();
@@ -124,7 +124,7 @@ public class EditPlayListDialogFragment extends BaseDialogFragment implements Di
 
     private String getTitle() {
         return getContext().getString(isEditMode() ?
-                R.string.mp_play_list_edit : R.string.mp_play_list_create);
+                R.string.play_list_edit : R.string.play_list_create);
     }
 
     public static EditPlayListDialogFragment createPlayList() {

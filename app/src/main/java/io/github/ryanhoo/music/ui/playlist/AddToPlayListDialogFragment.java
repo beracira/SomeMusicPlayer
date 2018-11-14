@@ -48,9 +48,9 @@ public class AddToPlayListDialogFragment extends BaseDialogFragment implements O
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Dialog dialog = new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.mp_play_list_dialog_add_to)
+                .setTitle(R.string.play_list_dialog_add_to)
                 .setView(R.layout.dialog_add_to_play_list)
-                .setNegativeButton(R.string.mp_cancel, null)
+                .setNegativeButton(R.string.cancel, null)
                 .create();
         dialog.setOnShowListener(this);
         return dialog;

@@ -1,98 +1,98 @@
 <resources>
-    <string name="mp_app_name">音乐播放器</string>
+    <string name="app_name">音乐播放器</string>
 
     <!-- Common -->
 
-    <string name="mp_cancel">取消</string>
-    <string name="mp_Confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
 
     <!-- Activity/Fragment Titles -->
-    <string name="mp_fragment_title_play_list">播放列表</string>
-    <string name="mp_fragment_title_music">音乐</string>
-    <string name="mp_fragment_title_local_files">本地音乐</string>
-    <string name="mp_fragment_title_settings">设置</string>
-    <string name="mp_fragment_title_search">搜索</string>
+    <string name="fragment_title_play_list">播放列表</string>
+    <string name="fragment_title_music">音乐</string>
+    <string name="fragment_title_local_files">本地音乐</string>
+    <string name="fragment_title_settings">设置</string>
+    <string name="fragment_title_search">搜索</string>
 
-    <string name="mp_activity_title_file_system">SD卡</string>
+    <string name="activity_title_file_system">SD卡</string>
 
     <!-- Play Lists -->
-    <string name="mp_play_list_favorite">收藏</string>
-    <string name="mp_play_list_footer_add">添加播放列表</string>
-    <string name="mp_play_list_footer_end_summary_formatter">总共有 %d 个播放列表</string>
+    <string name="play_list_favorite">收藏</string>
+    <string name="play_list_footer_add">添加播放列表</string>
+    <string name="play_list_footer_end_summary_formatter">总共有 %d 个播放列表</string>
 
-    <string name="mp_play_list_create">创建播放列表</string>
-    <string name="mp_play_list_created">创建 %s </string>
-    <string name="mp_play_list_edit">编辑播放列表</string>
-    <string name="mp_play_list_dialog_hint">播放列表名称</string>
-    <string name="mp_play_list_dialog_add_to">添加至播放列表</string>
+    <string name="play_list_create">创建播放列表</string>
+    <string name="play_list_created">创建 %s </string>
+    <string name="play_list_edit">编辑播放列表</string>
+    <string name="play_list_dialog_hint">播放列表名称</string>
+    <string name="play_list_dialog_add_to">添加至播放列表</string>
 
-    <string name="mp_play_list_daily">日推</string>
+    <string name="play_list_daily">日推</string>
 
-    <plurals name="mp_play_list_items_formatter">
+    <plurals name="play_list_items_formatter">
         <item quantity="one">%d 首歌</item>
         <item quantity="other">%d 首歌</item>
     </plurals>
 
     <!-- Play Lists - Details -->
-    <string name="mp_play_list_details_empty">没有音乐，去添加一些吧!</string>
-    <string name="mp_play_list_details_footer_end_summary_formatter">总共有 %d 首歌</string>
+    <string name="play_list_details_empty">没有音乐，去添加一些吧!</string>
+    <string name="play_list_details_footer_end_summary_formatter">总共有 %d 首歌</string>
 
     <!-- Main -->
-    <string-array name="mp_main_titles">
-        <item>@string/mp_fragment_title_play_list</item>
-        <item>@string/mp_fragment_title_music</item>
-        <item>@string/mp_fragment_title_local_files</item>
-        <item>@string/mp_fragment_title_settings</item>
-        <item>@string/mp_fragment_title_search</item>
+    <string-array name="main_titles">
+        <item>@string/fragment_title_play_list</item>
+        <item>@string/fragment_title_music</item>
+        <item>@string/fragment_title_local_files</item>
+        <item>@string/fragment_title_settings</item>
+        <item>@string/fragment_title_search</item>
     </string-array>
 
     <!-- Music -->
 
-    <string name="mp_music_default_duration">00:00</string>
+    <string name="music_default_duration">00:00</string>
 
     <!-- Local Files -->
-    <string name="mp_local_files_segmented_all">所有歌曲</string>
-    <string name="mp_local_files_segmented_folder">文件夹</string>
+    <string name="local_files_segmented_all">所有歌曲</string>
+    <string name="local_files_segmented_folder">文件夹</string>
 
-    <string name="mp_local_files_music_list_empty">设备上没有找到音乐</string>
-    <string name="mp_local_files_music_list_end_summary_formatter">总共有 %d 首歌</string>
-    <string name="mp_local_files_folder_list_end_summary_formatter">总共有 %d 个文件夹</string>
-    <string name="mp_local_files_folder_list_item_info_formatter" formatted="false">%d 首歌 | %s</string>
-    <string name="mp_local_files_folder_list_add_folder">添加文件夹</string>
+    <string name="local_files_music_list_empty">设备上没有找到音乐</string>
+    <string name="local_files_music_list_end_summary_formatter">总共有 %d 首歌</string>
+    <string name="local_files_folder_list_end_summary_formatter">总共有 %d 个文件夹</string>
+    <string name="local_files_folder_list_item_info_formatter" formatted="false">%d 首歌 | %s</string>
+    <string name="local_files_folder_list_add_folder">添加文件夹</string>
 
-    <string name="mp_local_files_file_system_empty">此目录下没有文件</string>
-    <string name="mp_local_files_file_system_menu_done">完成</string>
+    <string name="local_files_file_system_empty">此目录下没有文件</string>
+    <string name="local_files_file_system_menu_done">完成</string>
 
     <!-- Local Files - File System -->
-    <plurals name="mp_folders_created_formatter">
+    <plurals name="folders_created_formatter">
         <item quantity="one">创建了 %d 个新文件夹</item>
         <item quantity="other">创建了 %d 个新文件夹</item>
     </plurals>
-    <plurals name="mp_directory_items_formatter">
+    <plurals name="directory_items_formatter">
         <item quantity="one">%d 项目</item>
         <item quantity="other">%d 项目</item>
     </plurals>
 
-    <plurals name="mp_selected_folders_formatter">
+    <plurals name="selected_folders_formatter">
         <item quantity="one">选中了 %d 个文件夹</item>
         <item quantity="other">选中了 %d 个文件夹</item>
     </plurals>
 
     <!-- Menu -->
-    <string name="mp_menu_add_to_play_list">添加至播放列表</string>
-    <string name="mp_menu_create_play_list">创建播放列表</string>
-    <string name="mp_menu_refresh">刷新</string>
-    <string name="mp_menu_play_now">立即播放</string>
-    <string name="mp_menu_rename">重命名</string>
-    <string name="mp_menu_delete">删除</string>
+    <string name="menu_add_to_play_list">添加至播放列表</string>
+    <string name="menu_create_play_list">创建播放列表</string>
+    <string name="menu_refresh">刷新</string>
+    <string name="menu_play_now">立即播放</string>
+    <string name="menu_rename">重命名</string>
+    <string name="menu_delete">删除</string>
 
     <!-- Settings -->
-    <string name="mp_fragment_setting_login">微博登陆</string>
-    <string name="mp_fragment_setting_login_successful">登陆成功</string>
-    <string name="mp_fragment_setting_login_failed">登陆失败</string>
+    <string name="fragment_setting_login">微博登陆</string>
+    <string name="fragment_setting_login_successful">登陆成功</string>
+    <string name="fragment_setting_login_failed">登陆失败</string>
 
     <!-- Action Toast -->
-    <string name="mp_toast_start_download">开始下载</string>
-    <string name="mp_toast_download_complete">下载完成</string>
-    <string name="mp_toast_download_fail">下载失败</string>
+    <string name="toast_start_download">开始下载</string>
+    <string name="toast_download_complete">下载完成</string>
+    <string name="toast_download_fail">下载失败</string>
 </resources>
