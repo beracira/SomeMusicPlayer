@@ -71,6 +71,7 @@ import java.util.List;
                 playList.setCreatedAt(now);
                 playList.setUpdatedAt(now);
 
+                removeDup(playList);
                 long result = mLiteOrm.save(playList);
                 if (result > 0) {
                     subscriber.onNext(playList);
@@ -89,6 +90,7 @@ import java.util.List;
             public void call(Subscriber<? super PlayList> subscriber) {
                 playList.setUpdatedAt(new Date());
 
+                removeDup(playList);
                 long result = mLiteOrm.update(playList);
                 if (result > 0) {
                     subscriber.onNext(playList);
@@ -98,6 +100,21 @@ import java.util.List;
                 subscriber.onCompleted();
             }
         });
+    }
+
+    private void removeDup(final PlayList playList) {
+        // fuck efficiency
+        List<Song> allSongs = mLiteOrm.query(new QueryBuilder<>(Song.class));
+        for (int i = 0; i < playList.getNumOfSongs(); ++i) {
+            Song target = playList.getSongs().get(i);
+            if (target.getNid() == null) continue;
+            for (int j = 0; j < allSongs.size(); ++j) {
+                if (target.getNid().compareTo(allSongs.get(j).getNid()) == 0) {
+                    target.setId(allSongs.get(j).getId());
+                    Log.d("update_playlist", "nid " + target.getNid() + " already exists");
+                }
+            }
+        }
     }
 
     @Override
@@ -225,11 +242,18 @@ import java.util.List;
                 File file;
                 for (Iterator<Song> iterator = allSongs.iterator(); iterator.hasNext(); ) {
                     Song song = iterator.next();
+                    // cloud files that do not have a local path yet
+                    if (song.getPath() == null) continue;
                     file = new File(song.getPath());
                     boolean exists = file.exists();
                     if (!exists) {
-                        iterator.remove();
-                        mLiteOrm.delete(song);
+                        if (song.getNid() != null) {
+                            // if cloud file does not exist locally anymore
+                            song.setPath(null);
+                        } else {
+                            iterator.remove();
+                            mLiteOrm.delete(song);
+                        }
                     }
                 }
                 subscriber.onNext(allSongs);

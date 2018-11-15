@@ -20,6 +20,7 @@ public class Song implements Parcelable {
     @PrimaryKey(AssignType.AUTO_INCREMENT)
     private int id;
 
+    @Unique
     private String nid;
 
     private String title;
