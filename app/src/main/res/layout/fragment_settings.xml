@@ -4,18 +4,25 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/button_email_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/button_weibo_login"
+        android:text="@string/fragment_setting_email_login" />
+
+    <Button
         android:id="@+id/button_weibo_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/fragment_setting_login"
-        android:textColor="?attr/colorAccent" />
+        android:text="@string/fragment_setting_weibo_login" />
 
     <Button
         android:id="@+id/setting_test"
         android:layout_centerHorizontal="true"
         android:text="fuck me"
+        android:layout_below="@id/button_weibo_login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_weibo_login"/>
+        android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -87,7 +87,7 @@
     <string name="menu_delete">删除</string>
 
     <!-- Settings -->
-    <string name="fragment_setting_login">微博登陆</string>
+    <string name="fragment_setting_weibo_login">微博登陆</string>
     <string name="fragment_setting_login_successful">登陆成功</string>
     <string name="fragment_setting_login_failed">登陆失败</string>
 
@@ -95,4 +95,5 @@
     <string name="toast_start_download">开始下载</string>
     <string name="toast_download_complete">下载完成</string>
     <string name="toast_download_fail">下载失败</string>
+    <string name="fragment_setting_email_login">网易邮箱登录</string>
 </resources>
