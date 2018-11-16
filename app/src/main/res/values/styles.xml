@@ -30,6 +30,9 @@
         <item name="popupMenuStyle">@style/MP.Theme.Widget.PopupMenu</item>
         <item name="textAppearanceLargePopupMenu">@style/MP.Theme.TextAppearance.LargePopupMenu</item>
         <item name="textAppearanceSmallPopupMenu">@style/MP.Theme.TextAppearance.SmallPopupMenu</item>
+
+        <!--Button-->
+        <item name="android:buttonStyle">@style/MP.Theme.Widget.SettingButton</item>
     </style>
 
     <style name="MP.Theme" parent="AppTheme"/>
@@ -38,6 +41,11 @@
     <!-- Widget -->
 
     <style name="MP.Theme.Widget"/>
+
+    <style name="MP.Theme.Widget.SettingButton" parent="@style/Widget.AppCompat.Button">
+        <item name="android:backgroundTint">#5E80A1</item>
+        <item name="android:textAppearance">@style/MP.Theme.TextAppearance.List.Title</item>
+    </style>
 
     <!-- Widget - Divider -->
 
@@ -95,6 +103,8 @@
 
     <style name="MP.Theme.Widget.AlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
         <item name="android:background">@color/mp.theme.dark_blue.background</item>
+        <item name="android:textColor">@color/mp.theme.dark_blue.colorAccent</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
     <style name="MP.Theme.Widget.PopupMenu" parent="Widget.AppCompat.PopupMenu">

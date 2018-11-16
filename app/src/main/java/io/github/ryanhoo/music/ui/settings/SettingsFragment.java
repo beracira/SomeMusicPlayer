@@ -27,18 +27,26 @@ import io.github.ryanhoo.music.ui.base.BaseFragment;
  */
 public class SettingsFragment extends BaseFragment {
 
+    @BindView(R.id.button_email_login) Button buttonEmail;
     @BindView(R.id.button_weibo_login) Button buttonWeibo;
-    @BindView(R.id.setting_test) Button buttonTest;
+    @BindView(R.id.button_daily_recommendation) Button buttonDailyRecommendation;
 
+
+    @OnClick(R.id.button_email_login)
+    public void emailLogin() {
+        Log.d(this.getClass().toString(), "Email login button");
+        Intent intent = new Intent(getActivity(), EmailLoginActivity.class);
+        startActivityForResult(intent, 1);
+    }
 
     @OnClick(R.id.button_weibo_login)
     public void weiboLogin() {
-        Log.d(this.getClass().toString(), "login button");
+        Log.d(this.getClass().toString(), "Weibo login button");
         Intent intent = new Intent(getActivity(), WeiboLoginActivity.class);
         startActivityForResult(intent, 1);
     }
 
-    @OnClick(R.id.setting_test)
+    @OnClick(R.id.button_daily_recommendation)
     public void test() {
         RequestAPI.getInstance().getDaily();
     }

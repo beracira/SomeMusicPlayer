@@ -19,9 +19,9 @@
         android:text="@string/fragment_setting_weibo_login" />
 
     <Button
-        android:id="@+id/setting_test"
+        android:id="@+id/button_daily_recommendation"
         android:layout_centerHorizontal="true"
-        android:text="fuck me"
+        android:text="@string/fragment_setting_daily_recommendation"
         android:layout_below="@id/button_weibo_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

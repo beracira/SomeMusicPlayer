@@ -91,6 +91,15 @@
     <string name="fragment_setting_email_login">Netease Email Login</string>
     <string name="fragment_setting_login_successful">Login successful</string>
     <string name="fragment_setting_login_failed">Login failed</string>
+    <string name="fragment_setting_daily_recommendation">Daily Recommendation</string>
+
+    <!--Email Login-->
+    <string name="email_login_email_hint">fuck@yeah.com</string>
+    <string name="email_login_password">Password</string>
+    <string name="email_login_login">Login</string>
+    <string name="email_login_valid_email">Please enter a valid email address</string>
+    <string name="email_login_password_too_short">Password is too short to be true</string>
+    <string name="email_login_authenticating">Authenticating…</string>
 
     <!-- Pref -->
 

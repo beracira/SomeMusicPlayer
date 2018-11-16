@@ -29,7 +29,6 @@
     <string name="play_list_daily">日推</string>
 
     <plurals name="play_list_items_formatter">
-        <item quantity="one">%d 首歌</item>
         <item quantity="other">%d 首歌</item>
     </plurals>
 
@@ -65,16 +64,13 @@
 
     <!-- Local Files - File System -->
     <plurals name="folders_created_formatter">
-        <item quantity="one">创建了 %d 个新文件夹</item>
         <item quantity="other">创建了 %d 个新文件夹</item>
     </plurals>
     <plurals name="directory_items_formatter">
-        <item quantity="one">%d 项目</item>
         <item quantity="other">%d 项目</item>
     </plurals>
 
     <plurals name="selected_folders_formatter">
-        <item quantity="one">选中了 %d 个文件夹</item>
         <item quantity="other">选中了 %d 个文件夹</item>
     </plurals>
 
@@ -90,10 +86,22 @@
     <string name="fragment_setting_weibo_login">微博登陆</string>
     <string name="fragment_setting_login_successful">登陆成功</string>
     <string name="fragment_setting_login_failed">登陆失败</string>
+    <string name="fragment_setting_email_login">网易邮箱登录</string>
+    <string name="fragment_setting_daily_recommendation">每日推荐</string>
+
+    <!--Email Login-->
+    <string name="email_login_email_hint">fuck@yeah.com</string>
+    <string name="email_login_password">密码</string>
+    <string name="email_login_login">登录</string>
+    <string name="email_login_valid_email">请输入正确的邮箱地址</string>
+    <string name="email_login_password_too_short">密码不可能比杨鸣jj还短</string>
+    <string name="email_login_authenticating">登录中…</string>
+
+
 
     <!-- Action Toast -->
     <string name="toast_start_download">开始下载</string>
     <string name="toast_download_complete">下载完成</string>
     <string name="toast_download_fail">下载失败</string>
-    <string name="fragment_setting_email_login">网易邮箱登录</string>
+
 </resources>
