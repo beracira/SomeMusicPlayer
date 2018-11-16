@@ -74,7 +74,7 @@ public class Player implements IPlayback, MediaPlayer.OnCompletionListener {
                 mPlayer.reset();
 
                 // check if the file is available locally
-                if (song.getPath().compareTo("/") == 0) {
+                if (song.getPath() == null) {
                     RequestAPI.getInstance().getCache(song);
                     return false;
                 }

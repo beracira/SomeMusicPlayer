@@ -16,6 +16,7 @@ public class AskPermsThenSplashActivity extends BaseActivity {
 
     static final String[] _requestPermissions = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
     };
 
 
@@ -80,6 +81,18 @@ public class AskPermsThenSplashActivity extends BaseActivity {
                     finishAndRemoveTask();
                 }
             }
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    this.checkPermissions(requestCode+1); //check the next permission
+                } else {
+                    finishAndRemoveTask();
+                }
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request.
         }
 
     }

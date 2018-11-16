@@ -20,6 +20,11 @@ public class AlbumUtils {
     private static final String TAG = "AlbumUtils";
 
     public static Bitmap parseAlbum(Song song) {
+        if (song.getPath() == null) {
+            //TODO cloud file should display album cover properly.
+            Log.d(TAG, "encountered a file with no path");
+            return null;
+        }
         return parseAlbum(new File(song.getPath()));
     }
 

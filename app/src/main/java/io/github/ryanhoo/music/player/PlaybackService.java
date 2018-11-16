@@ -1,11 +1,16 @@
 package io.github.ryanhoo.music.player;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
@@ -210,11 +215,32 @@ public class PlaybackService extends Service implements IPlayback, IPlayback.Cal
      * Show a notification while this service is running.
      */
     private void showNotification() {
+
+        String NOTIFICATION_CHANNEL_ID = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NOTIFICATION_CHANNEL_ID = "io.github.ryanhoo.music.player";
+            String channelName = "My Background Service";
+            NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+            chan.setLightColor(Color.BLUE);
+            chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            assert manager != null;
+            manager.createNotificationChannel(chan);
+        }
+
         // The PendingIntent to launch our activity if the user selects this notification
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0);
 
+
+        NotificationCompat.Builder notificationBuilder;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+        } else {
+            notificationBuilder = new NotificationCompat.Builder(this);
+        }
         // Set the info for the views that show in the notification panel.
-        Notification notification = new NotificationCompat.Builder(this)
+        Notification notification = notificationBuilder
                 .setSmallIcon(R.drawable.ic_notification_app_logo)  // the status icon
                 .setWhen(System.currentTimeMillis())  // the time stamp
                 .setContentIntent(contentIntent)  // The intent to send when the entry is clicked

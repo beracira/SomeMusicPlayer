@@ -29,6 +29,7 @@ import io.github.ryanhoo.music.nodeAPI.PigFarmModel.CacheData;
 import io.github.ryanhoo.music.nodeAPI.PigFarmModel.Recommend;
 import io.github.ryanhoo.music.nodeAPI.PigFarmModel.RecommendWrapper;
 import io.github.ryanhoo.music.player.Player;
+import io.github.ryanhoo.music.ui.details.PlayListDetailsPresenter;
 import io.github.ryanhoo.music.ui.playlist.PlayListPresenter;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -41,14 +42,10 @@ import okhttp3.Response;
 import okio.BufferedSink;
 import okio.Okio;
 
-public class RequestAPI extends AsyncTask<String, Void, String> {
+public class RequestAPI{
 
     static private RequestAPI instance = null;
 
-//    static private void sendRequest {
-//        NodeInterface nodeInterface = NodeInterface.getInstance(view.getContext().getApplicationContext());
-//
-//    }
 
     private OkHttpClient client = new OkHttpClient();
 
@@ -139,7 +136,8 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
                         } catch (IndexOutOfBoundsException e) {
                             song.setArtist("");
                         }
-                        song.setPath("/");
+                        // path for cloud file is null by default;
+                        song.setPath(null);
                         song.setAlbum(recommend.album.name);
                         song.setDuration(recommend.duration);
                         song.setSize(0);
@@ -159,7 +157,7 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
             protected Void doInBackground(Void... voids) {
                 String id = song.getNid();
                 File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
-                String filename = song.getArtist() + " - " + song.getDisplayName();
+                String filename = song.getArtist() + " - " + song.getDisplayName() + ".mp3";
                 String path = dir + File.separator + filename;
                 Handler handler = new Handler(Injection.provideContext().getMainLooper());
 
@@ -219,38 +217,4 @@ public class RequestAPI extends AsyncTask<String, Void, String> {
         });
     }
 
-    @Override
-    protected void onPostExecute(String s) {
-        Gson gson = new GsonBuilder().create();
-        RecommendWrapper recommend = gson.fromJson(s, RecommendWrapper.class);
-//        Type mapType = new TypeToken<Map<String, Map>>(){}.getType();
-//        Map<String, String[]> son = new Gson().fromJson(s, mapType);
-        Log.d("Request Result", s);
-    }
-
-    @Override
-    protected String doInBackground(String... urls) {
-        String nodeResponse="";
-        try {
-            URL localNodeServer = new URL("http://localhost:3000" + urls[0]);
-            URLConnection urlConnection = localNodeServer.openConnection();
-            SharedPreferences prefs = Injection.provideContext().getSharedPreferences(
-                    Config.MP_LOGIN_USER_COOKIE, Context.MODE_PRIVATE);
-            String MUSIC_U = "MUSIC_U=" + prefs.getString("MUSIC_U", "");
-            String __csrf = "__csrf=" + prefs.getString("__csrf", "");
-            urlConnection.addRequestProperty("Cookie", MUSIC_U);
-            urlConnection.addRequestProperty("Cookie", "__remember_me=true");
-            urlConnection.addRequestProperty("Cookie", __csrf);
-            urlConnection.connect();
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(urlConnection.getInputStream()));
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                nodeResponse=nodeResponse+inputLine;
-            in.close();
-        } catch (Exception ex) {
-            nodeResponse=ex.toString();
-        }
-        return nodeResponse;
-    }
 }
